@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title style="font-family: Manrope">Mental Health Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/css/bootstrap.min.css') }} "
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/image/mental-health.png') }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/05cd8dc01c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}"
+          ><img
+            src="{{ url_for('static', filename='assets/image/mental-health.png') }}"
+            class="main-logo"
+        /></a>
+        <a class="navbar-brand note"
+          ><strong>Mental Health Detection</strong></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto py-2">
+            <li class="nav-item">
+              <a
+                class="nav-link active px-3"
+                aria-current="page"
+                href="{{ url_for('home') }}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-3" aria-current="page" href="#about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link px-3"
+                aria-current="page"
+                href="{{ url_for('sentence') }}"
+                >Test by Sentence</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="main">
+      <div class="container py-3">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="">
+              <img
+                src="{{ url_for('static', filename='assets/image/main-logo.png') }}"
+                class="mt-3 mb-4 py-5 w-75"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 px-5 pb-5 align-self-center">
+            <h2>
+              Hallo, Selamat datang di Website
+              <span>Mental Health Detection</span>!
+            </h2>
+            <hr />
+            <h4 class="mt-4">
+              Gimana kabarmu akhir-akhir ini? Yuk, cek kondisi kesehatan
+              mentalmu!
+            </h4>
+            <p class="mt-4">
+              <a
+                href="{{ url_for('sentence') }}"
+                type="button"
+                class="btn btn-acc"
+                >Cek Di Sini</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="info">
+      <div class="row text-center py-2" style="margin-right: 1px">
+        <div class="col-md-4">
+          <p class="mt-3">
+            <i class="fa-solid fa-arrows-to-dot"></i>
+            83% Accurate
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p class="mt-3">
+            <i class="fa-regular fa-face-smile"></i>
+            9.7/10 User Satisfaction Rate
+          </p>
+        </div>
+        <div class="col-md-4">
+          <p class="mt-3">
+            <i class="fas fa-users"></i>
+            4 People had been tested
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="container mt-5 mb-5 py-5">
+        <h2 class="text-center mt-4">About Us</h2>
+        <div class="row pt-4 mt-4 mb-5">
+          <div class="col-lg-6 align-self-center" style="text-align: justify">
+            <p>
+              Mental Health Detection (MHD) merupakan platform berbasis
+              teknologi <i>Artificial intelligence</i>, MHD dapat mendeteksi
+              apakah seseorang tengah mengalami gangguan kesehatan mental atau
+              tidak, hal yang menjadi fokus utama kami di sini adalah deteksi
+              depresi.
+            </p>
+            <p>
+              Terdapat 2 pendekatan untuk mengecek apakah pasien sedang
+              mengalami depresi atau tidak, yakni melalui pendekatan tulisan
+              (dapat secara lisan dengan menggunakan
+              <i>voice recognition</i> yang hasilnya akan diubah menjadi teks)
+              atau melalui pendekatan gambar yang nantinya deteksi diproses dari
+              ekspresi wajah pasien.
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="{{ url_for('static', filename='assets/image/about.jpg') }}"
+              class="px-5 w-100"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="developer">
+      <div class="container-fluid mt-5 pt-5 pb-5 bg-light mb-5">
+        <div class="container py-3 text-center">
+          <h2 class="text-center">Our Developer</h2>
+          <div class="row pt-4 gx-4 gy-4 mt-3">
+            <div class="col-md-3 text-center developer">
+              <img src="assets/image/ade.png" class="rounded-circle mb-3" />
+              <h4>Ade Mulyana</h4>
+              <p>Menantu Idaman</p>
+              <p class="text-center">
+                <a
+                  href="https://web.facebook.com/profile.php?id=100008803922151"
+                  class="social_developer"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/mhmmdbahtiar10/"
+                  class="social_developer ms-3"
+                  target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="" class="social_developer ms-3" target="_blank"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </p>
+            </div>
+            <div class="col-md-3 text-center developer">
+              <img
+                src="{{ url_for('static', filename='assets/image/yusuf.png') }}"
+                class="rounded-circle mb-3"
+              />
+              <h4>Muhammad Yusuf Bahtiar</h4>
+              <p>Menantu Idaman</p>
+              <p>
+                <a
+                  href="https://web.facebook.com/profile.php?id=100008803922151"
+                  class="social_developer"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/mhmmdbahtiar10/"
+                  class="social_developer ms-3"
+                  target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="" class="social_developer ms-3" target=""
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </p>
+            </div>
+            <div class="col-md-3 text-center developer">
+              <img src="assets/image/salman.png" class="rounded-circle mb-3" />
+              <h4>M Salman Kesuma</h4>
+              <p>Menantu Idaman</p>
+              <p>
+                <a
+                  href="https://web.facebook.com/profile.php?id=100008803922151"
+                  class="social_developer"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/mhmmdbahtiar10/"
+                  class="social_developer ms-3"
+                  target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="" class="social_developer ms-3" target="_blank"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </p>
+            </div>
+            <div class="col-md-3 text-center developer">
+              <img
+                src="{{ url_for('static', filename='assets/image/ravindra.png') }}"
+                class="rounded-circle mb-3"
+              />
+              <h4>Ravindra Maulana Sahman</h4>
+              <p>Menantu Idaman</p>
+              <p>
+                <a
+                  href="https://www.facebook.com/Vinnnn118/"
+                  class="social_developer"
+                  target="_blank"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/ravindramaulanas/"
+                  class="social_developer ms-3"
+                  target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="" class="social_developer ms-3" target=""
+                  ><i class="fab fa-twitter"></i
+                ></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="this-footer mt-5 main-footer-menu">
+        <div class="container py-3">
+          <div class="row mt-4">
+            <div class="col-lg-3 px-4">
+              <div class="mb-2">
+                <a href="{{ url_for('home') }}"
+                  ><img
+                    src="{{ url_for('static', filename='assets/image/mental-health.png') }}"
+                /></a>
+              </div>
+              <p class="mt-3 mb-4" style="text-align: justify">
+                Segala hal dapat dikerjakan dengan baik, jika kita sedang dalam
+                kondisi yang baik. Kalau merasa sedang tidak baik, ada kita yang
+                sedia menunggumu di sini!
+              </p>
+              <p>From Us with &hearts;</p>
+            </div>
+            <div class="col-lg-3 px-4">
+              <h3>RESOURCES</h3>
+              <ul class="px-1">
+                <li><a href="">Docs</a></li>
+                <li><a href="">Articles</a></li>
+                <li><a href="">Projects</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 px-4">
+              <h3>COMMUNITY</h3>
+              <ul class="px-1">
+                <li><a href="">Events</a></li>
+                <li><a href="">Forums</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 px-4">
+              <h3>SOCIAL MEDIA</h3>
+              <p class="ms-1">
+                <a href="" class="social" target="_blank"
+                  ><i class="fa-brands fa-facebook fa-lg"></i
+                ></a>
+                <a href="" class="social ms-4" target="_blank"
+                  ><i class="fa-brands fa-instagram fa-lg"></i
+                ></a>
+                <a href="" class="social ms-4" target="_blank"
+                  ><i class="fa-brands fa-whatsapp fa-lg"></i
+                ></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="main-footer-copyright text-center py-1"
+        style="text-size-adjust: fit"
+      >
+        Copyright © 2022 Mental Health Detection From AI5 Group.
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

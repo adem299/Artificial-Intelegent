@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title style="font-family: Manrope">Mental Health Detection</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/css/bootstrap.min.css') }} "
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static',filename='assets/css/style.css') }}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/image/mental-health.png') }}"
+    />
+    <script
+      src="https://kit.fontawesome.com/05cd8dc01c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}"
+          ><img
+            src="{{ url_for('static', filename='assets/image/mental-health.png') }}"
+            class="main-logo"
+        /></a>
+        <a class="navbar-brand note"
+          ><strong>Mental Health Detection</strong></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto py-2">
+            <li class="nav-item">
+              <a
+                class="nav-link px-3"
+                aria-current="page"
+                href="{{ url_for('home') }}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link px-3"
+                aria-current="page"
+                href="{{ url_for('about') }}"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active px-3"
+                aria-current="page"
+                href="{{ url_for('sentence') }}"
+                >Test by Sentence</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section class="contain-sentence">
+      <div class="container py-3">
+        <div class="row">
+          <div class="col-lg-6 mt-2">
+            <div class="">
+              <img
+                src="{{ url_for('static', filename='assets/image/sentence-logo.png') }}"
+                class="mt-3 mb-4 py-5 w-75"
+              />
+            </div>
+          </div>
+          <div class="col-lg-6 px-5 pb-5 mb-2 align-self-center">
+            <form class="mt-5" action="{{ url_for('predict')}}" method="post">
+              <h2>Mendeteksi kesehatan mentalmu dengan kalimat.</h2>
+              <p class="mt-4">
+                Tumpahkan semua isi pikiranmu saat ini pada kolom di bawah,
+                terbukalah dengan kami agar hasil deteksi yang didapat maksimal.
+                Jika hasil yang kamu dapatkan adalah <span>depresi</span>, maka
+                jangan sungkan untuk segera menghubungi psikolog. Meski begitu,
+                kami selalu berharap kamu dalam keadaan baik. &hearts;
+              </p>
+              <hr />
+              <br />
+              <div class="form-group mt-2">
+                <textarea
+                  name="mood_pred"
+                  id="note"
+                  rows="6"
+                  value=""
+                  class="form-control form-control-lg"
+                  placeholder="Tuliskan sesuatu..."
+                ></textarea>
+              </div>
+              <div class="btn-wrap d-flex justify-content-around mt-5">
+                <div class="col-2" style="text-align: center">
+                  <span class="pointer" id="micStart">
+                    <img
+                      class="rounded-circle"
+                      height="45"
+                      src="https://toppng.com/uploads/preview/open-mic-icon-iv-hydration-icon-11553402423mihhiupysa.png"
+                      alt="microphone-ON"
+                    />
+                  </span>
+                </div>
+                <div class="col-2" style="text-align: center">
+                  <span id="clearNote">
+                    <!-- <i class="fas fa-trash-alt text-danger icons pointer"></i> -->
+                    <button class="btn btn-danger pointer">Stop Voice</button>
+                  </span>
+                </div>
+                <div class="col-2" style="text-align: center">
+                  <span class="pointer" id="micStop">
+                    <button
+                      class="btn btn-light"
+                      type="submit "
+                      alt="microphone-OFF"
+                    >
+                      Emotion Check
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </form>
+
+            <br /><br />
+            {% if pred == 1 %}
+            <p>Hasil deteksi : <span1>Kamu sedang depresi.</span1></p>
+            {% elif pred == 0 %}
+            <p>Hasil deteksi : <span2>Kamu tidak sedang depresi.</span2></p>
+            {% else %}
+            <p>Hasil deteksi :</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="this-footer main-footer-menu">
+        <div class="container py-3">
+          <div class="row mt-4">
+            <div class="col-lg-3 px-4">
+              <div class="mb-2">
+                <a href="{{ url_for('home') }}"
+                  ><img
+                    src="{{ url_for('static', filename='assets/image/mental-health.png') }}"
+                /></a>
+              </div>
+              <p class="mt-3 mb-4" style="text-align: justify">
+                Segala hal dapat dikerjakan dengan baik, jika kita sedang dalam
+                kondisi yang baik. Kalau merasa sedang tidak baik, ada kita yang
+                sedia menunggumu di sini!
+              </p>
+              <p>From Us with &hearts;</p>
+            </div>
+            <div class="col-lg-3 px-4">
+              <h3>RESOURCES</h3>
+              <ul class="px-1">
+                <li><a href="">Docs</a></li>
+                <li><a href="">Articles</a></li>
+                <li><a href="">Projects</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 px-4">
+              <h3>COMMUNITY</h3>
+              <ul class="px-1">
+                <li><a href="">Events</a></li>
+                <li><a href="">Forums</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-3 px-4">
+              <h3>SOCIAL MEDIA</h3>
+              <p class="ms-1">
+                <a href="" class="social" target="_blank"
+                  ><i class="fa-brands fa-facebook fa-lg"></i
+                ></a>
+                <a href="" class="social ms-4" target="_blank"
+                  ><i class="fa-brands fa-instagram fa-lg"></i
+                ></a>
+                <a href="" class="social ms-4" target="_blank"
+                  ><i class="fa-brands fa-whatsapp fa-lg"></i
+                ></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="main-footer-copyright text-center py-1"
+        style="text-size-adjust: fit"
+      >
+        Copyright © 2022 Mental Health Detection From AI5 Group.
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var message = document.querySelector("#note");
+
+      var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+      var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+      const synth = window.speechSynthesis;
+      var grammar = "#JSGF V1.0;";
+      var final = "";
+      var recognition = new SpeechRecognition();
+      var speechRecognitionList = new SpeechGrammarList();
+      speechRecognitionList.addFromString(grammar, 1);
+      recognition.grammars = speechRecognitionList;
+      recognition.lang = "en-US";
+      recognition.interimResults = true;
+      recognition.continuous = true;
+      recognition.onresult = function (event) {
+        const transcript = Array.from(event.results)
+          .map((result) => result[0])
+          .map((result) => result.transcript)
+          .join("");
+        message.value = transcript;
+      };
+
+      recognition.onerror = function (event) {
+        message.textContent = "Error occurred in recognition: " + event.error;
+      };
+
+      recognition.addEventListener("soundstart", function () {
+        console.log("Some sound is being received");
+      });
+      recognition.addEventListener("speechend", function () {
+        console.log("Some sound has stopped");
+      });
+      const copyPaseText = () => {
+        var copyText = document.querySelector("#note").value;
+        navigator.clipboard.writeText(copyText).then(
+          function () {
+            alert(" Copying to clipboard was successful!");
+          },
+          function (err) {
+            console.error("Async: Could not copy text: ", err);
+          }
+        );
+      };
+      const clearNote = () => {
+        message.value = "";
+      };
+
+      document.querySelector("#micStart").addEventListener("click", () => {
+        recognition.start();
+      });
+      document.querySelector("#micStop").addEventListener("click", function () {
+        recognition.stop();
+      });
+      document.querySelector("#copyTxt").addEventListener("click", function () {
+        copyPaseText();
+      });
+      document
+        .querySelector("#clearNote")
+        .addEventListener("click", function () {
+          clearNote();
+        });
+    </script>
+  </body>
+</html>

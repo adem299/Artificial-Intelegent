@@ -1,0 +1,163 @@
+.main-nav {
+  background-color: #678983;
+}
+
+.main-nav .navbar-nav .nav-link.active,
+.main-nav .navbar-nav .nav-link:hover {
+  color: #181d31;
+}
+
+.note {
+  font-family: Courier;
+  font-size: x-large;
+}
+
+.navbar.scrolled {
+  background-color: #fffbeb;
+  transition: background-color 0.5s ease;
+  box-shadow: 0px -10px 30px #8794a5;
+}
+
+.navbar.scrolled a.nav-link {
+  color: black;
+}
+
+.navbar.scrolled a.nav-link.active {
+  color: #615f5f;
+}
+
+.navbar img.main-logo {
+  max-width: 35px;
+}
+
+.main {
+  background-color: #e6ddc4;
+  color: black;
+}
+
+.contain-sentence {
+  background-color: #e6ddc4;
+  color: black;
+}
+
+.contain-sentence span {
+  color: red;
+}
+
+.info {
+  background-color: #f0e9d2;
+  color: black;
+}
+
+.main span {
+  color: #678983;
+}
+
+.developer img {
+  width: 210px;
+  border: 7px solid #678983;
+}
+
+a.social_developer {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  color: white;
+  border-radius: 50%;
+  background-color: #181d31;
+  line-height: 28px;
+}
+
+.crop-img {
+  object-fit: cover;
+}
+
+.this-footer {
+  background-color: black;
+  color: white;
+}
+
+.main-footer-menu img {
+  max-width: 50px;
+}
+
+.main-footer-menu h3 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.main-footer-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.main-footer-menu a:hover {
+  color: #678983;
+}
+
+.main-footer-menu ul {
+  list-style-type: none;
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+.main-footer-menu ul li {
+  margin-bottom: 10px;
+}
+
+.main-footer-copyright {
+  background-color: #1c1b1b;
+  color: #ecc75f;
+}
+
+.contact {
+  margin-bottom: 30px;
+}
+
+.auth {
+  padding: 10px;
+  margin-top: 3.5rem;
+}
+
+.auth .card {
+  box-shadow: -8px 12px 18px 0 rgb(25, 42, 70, 0.13);
+  margin-bottom: 2.2rem;
+  padding: 20px;
+}
+
+.auth h3 {
+  font-weight: 600;
+  color: #5847ad;
+}
+
+.btn-acc {
+  background-color: #181d31;
+  color: white;
+}
+
+.career .form-control {
+  max-width: 250px;
+  display: inline-flex;
+  margin: 10px 5px;
+  border-radius: 0;
+}
+
+.career .phar {
+  max-width: 250px;
+  display: inline-flex;
+  margin: 10px 5px;
+}
+
+.contain-sentence span1 {
+  color: rgb(181, 0, 0);
+}
+
+.contain-sentence span2 {
+  color: rgb(0, 157, 0);
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
